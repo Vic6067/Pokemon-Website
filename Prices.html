@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prices | Booster Mania</title>
+    <link rel="stylesheet" href="https://use.typekit.net/qxt4htw.css">
+    <link rel="stylesheet" href="pricesSTYLE.css">
+</head>
+<body id="top" class="prices-page">
+<header class="hero prices-hero">
+    <nav class="nav">
+        <div class="logo">
+            Pokemon Centre<br>
+            Booster Mania
+        </div>
+        <div class="links">
+            <a href="Index.html" aria-current="page">Home</a>
+            <a href="About.html">Pull Rates</a>
+            <a href="Prices.html">Rare Distribution</a>
+            <a href="Prices.html">My Archive</a>
+        </div>
+    </nav>
+    <div class="content">
+        <h1>Prices</h1>
+        
+    </div>
+</header>
+
+<main>
+    <section class="info-section prices-intro">
+        <div class="info-inner">
+            <span class="section-label">THE PRICE OF TCG</span>
+            <h2>Spending per Generation</h2>
+            <p>At first, I wanted to showcase the prices of the sets I had pciked out for each generation of Pokemon. However, the data I found consistently shocased the market price
+                up to 5 years ago, and not the actual begining price of each set. For some boosters, this is okay, like Prismatic Evolution, which was only released a few years ago,
+                but for the older sets like the Base Set and Aquapolis, this proved to throw a huge problem in the validity of my data.
+            </p>
+        </div>
+    </section>
+
+    <section class="prices-showcase">
+        <div class="prices-heading">
+            <span class="section-label">Data Visualizations</span>
+            <h2>Price Timelines</h2>
+            <p>The different charts are divided by the highest prices observed over time.</p>
+        </div>
+
+        <div class="scroll-container">
+            <div class="photo-stage">
+                <img src="ill4 background.png" id="img-1" class="active" alt="Featured Pokemon card artwork">
+                <img src="Illustration4.png" id="img-2" alt="Another featured Pokemon illustration">
+                <img src="Illustration5white.png" id="img-3" alt="A third featured Pokemon illustration">
+            </div>
+            <div class="text-column">
+                <div class="step" data-target="img-1">
+                    <span class="section-label">01 / THE ART</span>
+                    <h3>Every card tells a story</h3>
+                    <p>Discover the details, color, and character that make collecting memorable.</p>
+                </div>
+                <div class="step" data-target="img-2">
+                    <span class="section-label">02 / THE SET</span>
+                    <h3>Find a new favorite</h3>
+                    <p>Explore different illustrations and see what stands out to you.</p>
+                </div>
+                <div class="step" data-target="img-3">
+                    <span class="section-label">03 / YOUR PICKS</span>
+                    <h3>Build a collection your way</h3>
+                    <p>Compare categories below to keep track of the artwork you love.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prices-compare" id="compare">
+        <div class="prices-heading">
+            <span class="section-label">COMPARE YOUR CARDS</span>
+            <h2>Choose two categories</h2>
+            <p>Select any two of the most expensive cards in any generation to see how the price is matched between them! Card prices can be determined
+                by a number of factors, such as age, condition, rarity, as well as printing errors found while grading the card. Currently these
+                comparisons are operating on the UNGRADED version of the cards, due to some sets not having a standard graded market price.</p>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn" onclick="selectCategory(0)">Base Set</button>
+            <button class="category-btn" onclick="selectCategory(1)">Aquapolis</button>
+            <button class="category-btn" onclick="selectCategory(2)">Holon Phantoms</button>
+            <button class="category-btn" onclick="selectCategory(3)">Majestic Dawn</button>
+            <button class="category-btn" onclick="selectCategory(4)">Dragons Exhalted</button>
+            <button class="category-btn" onclick="selectCategory(5)">Evolutions Set</button>
+            <button class="category-btn" onclick="selectCategory(6)">Burning Shadows</button>
+            <button class="category-btn" onclick="selectCategory(7)">Shining Fates</button>
+            <button class="category-btn" onclick="selectCategory(8)">Prismatic Evolutions</button>
+        </div>
+
+        <div class="price-gallery">
+            <article class="price-card">
+                <h3 id="title1">Select a Set</h3>
+                <img id="image1" src="https://placehold.co/600x400?text=Choose+a+set" alt="First selected set">
+            </article>
+            <article class="price-card">
+                <h3 id="title2">Select a Set</h3>
+                <img id="image2" src="https://placehold.co/600x400?text=Choose+a+set" alt="Second selected set">
+            </article>
+        </div>
+
+        <div class="gallery-description">
+            <h3>Set notes</h3>
+            <p id="descriptionText">Choose two sets above to compare their details.</p>
+        </div>
+    </section>
+
+    <script>
+        const steps = document.querySelectorAll('.step');
+        const images = document.querySelectorAll('.photo-stage img');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    images.forEach(img => img.classList.remove('active'));
+                    const targetId = entry.target.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        steps.forEach(step => observer.observe(step));
+
+const categories = [
+    {
+        name: "Base Set",
+        image: "charizard base.png",
+        description: "This Base Set card base Near Mint value is $10,002."
+    },
+    {
+        name: "Aquapolis",
+        image: "houndooom aquapolis.png",
+        description: "This Aquapolis card base near Mint value is $1,865."
+    },
+    {
+        name: "Holon Phantoms",
+        image: "mewtwo holon.png",
+        description: "This Holon Phantoms card's base near Mint value is $9,200."
+    },
+    {
+        name: "Majestic Dawn",
+        image: "porygon majestic.png",
+        description: "This Majestic Dawn card's base near Mint value is $705."
+    },
+    {
+        name: "Dragons Exhalted",
+        image: "rayquaza dragons.png",
+        description: "This Dragons Exhalted card's base near Mint value is $1,250."
+    },
+    {
+        name: "Evolutions Set",
+        image: "MegaChar Evo.png",
+        description: "This Evolutions Set card's base near Mint value is $120."
+    },
+    {
+        name: "Burning Shadows",
+        image: "CharGX burning.png",
+        description: "This Burning Shadows card's base near Mint value is $841."
+    },
+    {
+        name: "Shining Fates",
+        image: "CharVMAX shining.png",
+        description: "This Shining Fates card's base near Mint value is $114."
+    },
+    {
+        name: "Prismatic Evolutions",
+        image: "umbreon prismatic.png",
+        description: "This Prismatic Evolutions card's base near Mint value is $1,187."
+    }
+];
+
+let selectedCategories = [];
+
+function selectCategory(index) {
+
+    // Prevent selecting the same category twice
+    if (selectedCategories.includes(index)) {
+        return;
+    }
+
+    // Allow only two categories at a time
+    if (selectedCategories.length === 2) {
+        selectedCategories = [];
+    }
+
+    selectedCategories.push(index);
+
+    // Update button appearance
+    document.querySelectorAll(".category-btn")
+        .forEach((button, i) => {
+            button.classList.toggle(
+                "active",
+                selectedCategories.includes(i)
+            );
+        });
+
+    // Display first selected category
+    if (selectedCategories.length >= 1) {
+        const first = categories[selectedCategories[0]];
+
+        document.getElementById("title1").textContent = first.name;
+        document.getElementById("image1").src = first.image;
+    }
+
+    document.getElementById("descriptionText").textContent =
+        selectedCategories
+            .map(categoryIndex => categories[categoryIndex].description)
+            .join(" ");
+
+    // Display second selected category
+    if (selectedCategories.length === 2) {
+        const second = categories[selectedCategories[1]];
+
+        document.getElementById("title2").textContent = second.name;
+        document.getElementById("image2").src = second.image;
+    }
+}
+
+</script>
+
+    <footer class="cool-footer">
+        <div class="footer-glow"></div>
+        <div class="footer-content">
+            <span class="section-label">THANKS FOR STOPPING BY</span>
+            <div class="footer-line"></div>
+            <a href="#top" class="footer-top-button">
+                <span>↑</span> BACK TO TOP
+            </a>
+            <div class="footer-bottom">
+                <p>© 2026 BOOSTER MANIA</p>
+                <p>MADE WITH ♡ FOR POKEMON COLLECTORS</p>
+            </div>
+        </div>
+    </footer>
+
+</main>
+</body>
+</html>
